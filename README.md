@@ -6,3 +6,5 @@ Introduction
 
 Architecture
 
+![](images/wildfire_data_pipeline.png)
+
