@@ -33,28 +33,20 @@ def process_plot_data(spark, input, output):
     plot = spark.read.format("avro").load("s3a://bucketname")
     #print(plot.dtypes)
     plot_df = plot.select(['plot_sequence_number',
-                            'survey_sequence_number',
-                            'county_sequence_number',
-                            'plot_inventory_year',
-                            'plot_state_code',
-                            'plot_state_code_name',
-                            'plot_survey_unit_code',
-                            'plot_county_code',
-                            'plot_phase_2_plot_number',
-                            'plot_status_code',
-                            'measurement_year',
-                            'sample_kind_code',
-                            'sample_kind_code_name',
-                            'plot_design_code',
-                            'latitude',
-                            'longitude',
-                            'elevation',
-                            'p2_vegetation_sampling_status_code',
-                            'p2_vegetation_sampling_status_code_name',
-                            'p2_vegetation_sampling_level_detail_code',
-                            'p2_vegetation_sampling_level_detail_code_name',
-                            'unique_plot',
-                            'precipitation'])
+                'survey_sequence_number', 'county_sequence_number',
+                'plot_inventory_year', 'plot_state_code',
+                'plot_state_code_name', 'plot_survey_unit_code',
+                'plot_county_code', 'plot_phase_2_plot_number',
+                'plot_status_code', 'measurement_year',
+                'sample_kind_code', 'sample_kind_code_name',
+                'plot_design_code', 'latitude',
+                'longitude', 'elevation',
+                'p2_vegetation_sampling_status_code',
+                'p2_vegetation_sampling_status_code_name',
+                'p2_vegetation_sampling_level_detail_code',
+                'p2_vegetation_sampling_level_detail_code_name',
+                'unique_plot', 'precipitation']
+                )
     # filters data by state
     plot_df = plot_df.filter(plot_df['plot_state_code_name']=='California')
 
@@ -134,7 +126,8 @@ def process_fire_data(spark, input_data, output_data):
                 'FIRE_SIZE_CLASS',
                 'LATITUDE', 'LONGITUDE',
                 'OWNER_CODE','OWNER_DESCR',
-                'STATE', 'COUNTY'])
+                'STATE', 'COUNTY']
+                 )
 
     # creates a new column
     fires_df = fires_df.filter(fires_df['STATE']=='CA')
