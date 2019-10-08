@@ -15,6 +15,3 @@ The FIA data set is in BigQuery. I wanted to keep the data in Amazon S3 for long
 The 1.88 Million US Wildfires data set is in SQLite. I converted the database file to csv file and loaded to S3 bucket.
 
 
-### SPARK BATCH PROCESSING ###
-
-Apache SPARK is general purpose in memory cluster commputing system
